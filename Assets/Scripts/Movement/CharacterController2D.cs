@@ -68,7 +68,7 @@ namespace GameDevJam.Movement
 
         private void Flip()
         {
-            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > 0.1f;
             if (playerHasHorizontalSpeed)
             {
                 transform.localScale = new Vector3(Mathf.Sign(myRigidbody.velocity.x), 1f, 1f);

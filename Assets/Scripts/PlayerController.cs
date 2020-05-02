@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     float horizontalMove = 0f;
 
     private void Awake() 
-    {    
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 144;
+
         myController = GetComponent<CharacterController2D>(); 
     }
 

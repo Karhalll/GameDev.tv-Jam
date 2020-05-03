@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameDevJam.Movement
 {
@@ -13,6 +11,7 @@ namespace GameDevJam.Movement
 
         bool grounded = false;
         bool isJumping = false;
+        bool isPlayerControlling = false; //get ridof somehow to make it work even for enemies (no keybord control)
 
         Rigidbody2D myRigidbody;
         Animator myAnimator;
@@ -25,16 +24,23 @@ namespace GameDevJam.Movement
 
         private void FixedUpdate()
         {
-            grounded = false;
-
             if (groundChecker.IsTouchingLayers(groundLayer))
             {
+                print("Grounded");
                 grounded = true;
             }
+            else
+            {
+                print("Not Grounded");
+                grounded = false;
+            }
+
+            NormalizeSlope();    
         }
 
         private void Update()
         {
+            isPlayerControlling = (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f) || Input.GetButtonDown("Jump");
             Flip();
 
             myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
@@ -66,12 +72,45 @@ namespace GameDevJam.Movement
             return isJumping;
         }
 
+        // only working for player now -> depending on keybord input.
         private void Flip()
         {
-            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > 0.1f;
-            if (playerHasHorizontalSpeed)
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float inputTollerance = 0.1f;
+
+            if (horizontalInput > inputTollerance)
             {
-                transform.localScale = new Vector3(Mathf.Sign(myRigidbody.velocity.x), 1f, 1f);
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if (horizontalInput < -inputTollerance)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+        }
+
+        void NormalizeSlope()
+        {
+            if (grounded)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(
+                    transform.position, 
+                    -Vector2.up, 5f,
+                    groundLayer
+                );
+
+                if (hit.collider != null && Mathf.Abs(hit.normal.x) > 0.01f  && !isPlayerControlling)
+                {
+                    myRigidbody.gravityScale = 0f;
+                    myRigidbody.velocity = Vector2.zero;
+                }
+                else
+                {
+                    myRigidbody.gravityScale = 10f;
+                }
+            }
+            else
+            {
+                myRigidbody.gravityScale = 10f;
             }
         }
     }

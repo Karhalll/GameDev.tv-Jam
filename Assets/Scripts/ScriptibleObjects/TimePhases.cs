@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TimePhases : ScriptableObject
 {
-    [SerializeField] Phase[] phases;
+    [SerializeField] Phase[] phases = null;
 
     [Serializable]
     public class Phase

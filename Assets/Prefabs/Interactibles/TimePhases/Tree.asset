@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c7721f39602624b897e45d698f6068, type: 3}
+  m_Name: Tree
+  m_EditorClassIdentifier: 
+  phases:
+  - phaseSprite: {fileID: -1345790394679106838, guid: a6537a7ed3a6e7644bfb1b7204a0d841,
+      type: 3}
+    timeStamp: 0
+  - phaseSprite: {fileID: -8530094226498828695, guid: a6537a7ed3a6e7644bfb1b7204a0d841,
+      type: 3}
+    timeStamp: 2
+  - phaseSprite: {fileID: -4116199548460548777, guid: a6537a7ed3a6e7644bfb1b7204a0d841,
+      type: 3}
+    timeStamp: 5
+  - phaseSprite: {fileID: 3585142574950279874, guid: a6537a7ed3a6e7644bfb1b7204a0d841,
+      type: 3}
+    timeStamp: 20
+  - phaseSprite: {fileID: 1163054302260089922, guid: a6537a7ed3a6e7644bfb1b7204a0d841,
+      type: 3}
+    timeStamp: 50

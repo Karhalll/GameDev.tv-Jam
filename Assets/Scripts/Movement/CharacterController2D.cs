@@ -26,12 +26,10 @@ namespace GameDevJam.Movement
         {
             if (groundChecker.IsTouchingLayers(groundLayer))
             {
-                print("Grounded");
                 grounded = true;
             }
             else
             {
-                print("Not Grounded");
                 grounded = false;
             }
 

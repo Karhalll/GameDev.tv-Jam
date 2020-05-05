@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -13,7 +11,7 @@ public class TimePhases : ScriptableObject
     {
         [SerializeField] public Sprite phaseSprite;
         [Range(0, 1000)]
-        [SerializeField] int timeStamp;
+        [SerializeField] public int timeStamp;
     }
 
     public Phase[] GetPhases()

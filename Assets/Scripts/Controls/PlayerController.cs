@@ -15,6 +15,7 @@ namespace GameDevJam.Controls
         CharacterController2D myController;
 
         float horizontalMove = 0f;
+        bool isMovementlAllowed = true;
 
         private void Awake()
         {
@@ -28,11 +29,14 @@ namespace GameDevJam.Controls
 
         void Update()
         {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
-
-            if (Input.GetButtonDown("Jump"))
+            if (isMovementlAllowed)
             {
-                Jump();
+                horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Jump();
+                }
             }
         }
 
@@ -44,6 +48,21 @@ namespace GameDevJam.Controls
         private void Jump()
         {
             myController.Jump(jumpForce);
+        }
+
+        public void EnableControl()
+        {
+            isMovementlAllowed = true;
+        }
+
+        public void DisableControl()
+        {
+            isMovementlAllowed = false;
+        }
+
+        public bool IsMovementAllowed()
+        {
+            return isMovementlAllowed;
         }
     }
 

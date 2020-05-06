@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &713402319967426782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4320634967327842074}
+  m_Layer: 10
+  m_Name: Time Bar Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4320634967327842074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713402319967426782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2235762360323278165}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2235762359621000092
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235762359621000093}
   - component: {fileID: 2235762359621000094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Current Phase Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2235762360323278165}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2235762359621000094
 SpriteRenderer:
@@ -91,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235762360160322525}
   - component: {fileID: 2235762360160322526}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Phase Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2235762360323278165}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2235762360160322526
 SpriteRenderer:
@@ -172,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235762360323278165}
   - component: {fileID: 2235762360323278166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Time Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,8 +220,10 @@ Transform:
   m_LocalPosition: {x: 25.87, y: -5.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8385685123304739174}
   - {fileID: 2235762359621000093}
   - {fileID: 2235762360160322525}
+  - {fileID: 4320634967327842074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -207,7 +239,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ec0271a7ca45e4ca827b3cbc8da32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpotter: {fileID: 5466869171526381705}
   timePhases: {fileID: 11400000, guid: ccb6bc6a9be1983478366ff222a879be, type: 2}
   spriteRendererCurrent: {fileID: 2235762359621000094}
   spriteRendererNew: {fileID: 2235762360160322526}
   phaseTransitTime: 2
+  timeBarPref: {fileID: 933980561742263909, guid: 3dc997c45f9abf7468b40a9dc09bec97,
+    type: 3}
+  timeBarSpawnPoitn: {fileID: 4320634967327842074}
+--- !u!1 &5671630154139011994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8385685123304739174}
+  - component: {fileID: 5163974161684858819}
+  - component: {fileID: 5466869171526381705}
+  m_Layer: 10
+  m_Name: Player Spotter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8385685123304739174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671630154139011994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2235762360323278165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5163974161684858819
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671630154139011994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.5
+--- !u!114 &5466869171526381705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5671630154139011994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762d3bc2b31c9a84d884d3515c671a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using GameDevJam.Controls;
+
 namespace GameDevJam.Movement
 {
     [RequireComponent(typeof(Animator))]
@@ -15,9 +17,11 @@ namespace GameDevJam.Movement
 
         Rigidbody2D myRigidbody;
         Animator myAnimator;
+        PlayerController playerController;
 
         private void Awake()
         {
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             myRigidbody = GetComponent<Rigidbody2D>();
             myAnimator = GetComponent<Animator>();
         }
@@ -73,6 +77,11 @@ namespace GameDevJam.Movement
         // only working for player now -> depending on keybord input.
         private void Flip()
         {
+            if (!playerController.IsMovementAllowed())
+            {
+                return;
+            }
+
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float inputTollerance = 0.1f;
 

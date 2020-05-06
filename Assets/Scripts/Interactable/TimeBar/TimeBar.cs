@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameDevJam.TimeBar
+namespace GameDevJam.Interactable
 {
     public class TimeBar : MonoBehaviour
     {
@@ -10,12 +10,13 @@ namespace GameDevJam.TimeBar
         [SerializeField] int crystalsOwned = 2;
 
         [SerializeField] Slider activeBarFill = null;
-        [SerializeField] Slider movingSlider = null;
+        [SerializeField] MovingSlider movingSlider = null;
 
         [SerializeField] Transform phaseStamps = null;
         [SerializeField] GameObject phaseStampPref = null;
-        [SerializeField] TimePhases objectsTimePhases = null;
 
+        TimePhases objectsTimePhases = null;
+        
         float currenTimeToManip; 
 
         private void Awake() 
@@ -28,7 +29,7 @@ namespace GameDevJam.TimeBar
             activeBarFill.maxValue = maxTimeToManip;
             activeBarFill.value = currenTimeToManip;
 
-            movingSlider.maxValue = currenTimeToManip;
+            movingSlider.GetComponent<Slider>().maxValue = currenTimeToManip;
 
             SpawnPhaseStamps();
         }
@@ -67,6 +68,16 @@ namespace GameDevJam.TimeBar
                 if (child == parent) { continue; }
                 Destroy(child.gameObject);
             }
+        }
+
+        public void SetTimePhases(TimePhases timePhases)
+        {
+            objectsTimePhases = timePhases;
+        }
+
+        public void SetSliderStartingPos(float position)
+        {
+            movingSlider.SetStartingPos(position);
         }
     }
 }

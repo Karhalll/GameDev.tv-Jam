@@ -321,6 +321,7 @@ MonoBehaviour:
   maxTimeToManip: 1000
   maxCystals: 5
   crystalsOwned: 2
+  stopingTolerance: 25
   activeBarFill: {fileID: 933980560806145309}
   movingSlider: {fileID: 933980561947572023}
   phaseStamps: {fileID: 933980560782193998}

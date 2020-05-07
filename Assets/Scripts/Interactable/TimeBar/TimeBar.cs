@@ -9,8 +9,10 @@ namespace GameDevJam.Interactable
         [SerializeField] int maxCystals = 5;
         [SerializeField] int crystalsOwned = 2;
 
+        [SerializeField] public float stopingTolerance = 50f;
+
         [SerializeField] Slider activeBarFill = null;
-        [SerializeField] MovingSlider movingSlider = null;
+        [SerializeField] public MovingSlider movingSlider = null;
 
         [SerializeField] Transform phaseStamps = null;
         [SerializeField] GameObject phaseStampPref = null;
@@ -37,7 +39,7 @@ namespace GameDevJam.Interactable
         private void SpawnPhaseStamps()
         {
             DestoryChildrenIn(phaseStamps);
-            TimePhases.Phase[] phases = objectsTimePhases.GetPhases();
+            var phases = objectsTimePhases.GetPhases();
 
             foreach(var phase in phases)
             {
@@ -78,6 +80,16 @@ namespace GameDevJam.Interactable
         public void SetSliderStartingPos(float position)
         {
             movingSlider.SetStartingPos(position);
+        }
+
+        public void StartSliding()
+        {
+            movingSlider.enabled = true;
+        }
+
+        public void StopSliding()
+        {
+            movingSlider.enabled = false;
         }
     }
 }

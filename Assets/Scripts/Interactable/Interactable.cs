@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 using GameDevJam.Utils;
 using GameDevJam.Controls;
@@ -8,26 +7,27 @@ namespace GameDevJam.Interactable
 {
     public class Interactable : MonoBehaviour
     {
-        [SerializeField] PlayerSpotter playerSpotter = null;
+        [Header("Properities")]
         [SerializeField] TimePhases timePhases = null;
-        [SerializeField] SpriteRenderer spriteRendererCurrent = null;
-        [SerializeField] SpriteRenderer spriteRendererNew = null;
+        [SerializeField] int currentPhaseIndex = 0;
         [SerializeField] float phaseTransitTime = 2f;
 
         [Header("TimeBar")]
         [SerializeField] TimeBar timeBarPref = null;
         [SerializeField] Transform timeBarSpawnPoitn = null;
 
+        [Header("PrefabConnections")]
+        [SerializeField] Phase currentPhaseObj = null;
+        [SerializeField] Phase newPhaseObj = null;
+        [SerializeField] PlayerSpotter playerSpotter = null;
+
+        TimePhases.TimePhase currentTimePhase = null;
         TimeBar timeBar = null;
-
-        int currentPhase = 0;
-        int maxPhases = 5;
-
         bool isManupilated = false;
 
-        private void Start()
+        private void Start() 
         {
-            maxPhases = timePhases.GetPhases().Length;
+            currentTimePhase = timePhases.GetPhases().ToArray()[currentPhaseIndex];
         }
 
         private void Update()
@@ -36,15 +36,44 @@ namespace GameDevJam.Interactable
             {
                 if (!isManupilated)
                 {
-                    EnablePlayerMovement(false);
-                    isManupilated = true;
-                    SpawnTimeBar();
+                    StartTimeBarMinigame();     
                 }
                 else
                 {
-                    EnablePlayerMovement(true);
-                    isManupilated = false;
-                    DestroyTimeBar();
+                    EndTimerBarMinigame();
+                }
+            }
+        }
+
+        private void StartTimeBarMinigame()
+        {
+            EnablePlayerMovement(false);
+            isManupilated = true;
+            SpawnTimeBar();
+            timeBar.StartSliding();
+        }
+
+        private void EndTimerBarMinigame()
+        {
+            EvaluateTimeBar();
+            DestroyTimeBar();
+            isManupilated = false;
+            EnablePlayerMovement(true);
+        }
+
+        private void EvaluateTimeBar()
+        {
+            float sliderValue = timeBar.movingSlider.GetCurrentPos();
+
+            var phases = timePhases.GetPhases();
+            foreach (var phase in phases)
+            {
+                
+                float distance = Mathf.Abs(phase.timeStamp - sliderValue);
+                if (distance <= timeBar.stopingTolerance)
+                {
+                    ChangePhase(phase);         
+                    break;
                 }
             }
         }
@@ -60,33 +89,43 @@ namespace GameDevJam.Interactable
             );
             timeBar.SetTimePhases(timePhases);
 
-            float startingPos = timePhases.GetPhases()[currentPhase].timeStamp;
+            float startingPos = currentTimePhase.timeStamp;
             timeBar.SetSliderStartingPos(startingPos);
         }
 
-        private void ChangePhase(int phaseNumber)
+        private void ChangePhase(TimePhases.TimePhase newPhase)
         {
-            if (phaseNumber > maxPhases - 1)
-            {
-                Debug.LogError(gameObject.name + " phase limit exeded");
-                return;
-            }
+            var tempPhase = Instantiate(
+                newPhase.phase,
+                newPhaseObj.transform.position,
+                Quaternion.identity,
+                newPhaseObj.transform.parent
+            );
+            newPhaseObj.phaseCollider.enabled = false;
+                
+            Destroy(newPhaseObj.gameObject);
+            newPhaseObj = tempPhase;
 
-            TimePhases.Phase phase = timePhases.GetPhases()[phaseNumber];
-
+            SpriteRenderer spriteRendererCurrent = currentPhaseObj.phaseSpriteRendered;
+            SpriteRenderer spriteRendererNew = newPhaseObj.phaseSpriteRendered;
             spriteRendererNew.color = new Color(
                 spriteRendererNew.color.r,
                 spriteRendererNew.color.g,
                 spriteRendererNew.color.b,
                 0f
             );
-            spriteRendererNew.sprite = phase.phaseSprite;
-
             FindObjectOfType<SpriteFader>().SpritesTransition(
                 ref spriteRendererCurrent, 
                 ref spriteRendererNew, 
                 phaseTransitTime
             );
+
+            var temp = currentPhaseObj;
+            currentPhaseObj = newPhaseObj;
+            newPhaseObj = temp;
+
+            currentPhaseObj.phaseCollider.enabled = true;
+            newPhaseObj.phaseCollider.enabled = false;
         }
 
         private void DestroyTimeBar()

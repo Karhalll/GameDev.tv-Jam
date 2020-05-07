@@ -10,10 +10,6 @@ namespace GameDevJam.Utils
         {
             StartCoroutine(FadeIn(secondSprite, transitonTime));
             StartCoroutine(FadeOut(firstSprite, transitonTime));
-
-            SpriteRenderer holder = firstSprite;
-            firstSprite = secondSprite;
-            secondSprite = holder;
         }
 
         private IEnumerator FadeIn(SpriteRenderer spriteToFade, float transitionTime)

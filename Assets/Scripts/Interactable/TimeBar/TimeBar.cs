@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+using GameDevJam.Core.Variables;
+
 namespace GameDevJam.Interactable
 {
     public class TimeBar : MonoBehaviour
     {
         [SerializeField] float maxTimeToManip = 1000f;
-        [SerializeField] int maxCystals = 5;
-        [SerializeField] int crystalsOwned = 2;
+        [SerializeField] IntVariable maxCystals = null;
+        [SerializeField] IntVariable crystalsOwned = null;
 
         [SerializeField] public float stopingTolerance = 50f;
 
@@ -18,12 +20,12 @@ namespace GameDevJam.Interactable
         [SerializeField] GameObject phaseStampPref = null;
 
         TimePhases objectsTimePhases = null;
-        
+
         float currenTimeToManip; 
 
         private void Awake() 
         {
-            currenTimeToManip = (maxTimeToManip / maxCystals) * crystalsOwned;
+            currenTimeToManip = (maxTimeToManip / maxCystals.GetValue()) * crystalsOwned.GetValue();
         }
 
         private void Start() 
@@ -54,10 +56,17 @@ namespace GameDevJam.Interactable
             phaseStampSlider.maxValue = maxTimeToManip;
             phaseStampSlider.value = placement;
 
+            float tolerance = Mathf.Abs(placement - movingSlider.GetStartingPos());
             if (placement > currenTimeToManip)
             {
                 ColorBlock newColorBlock = phaseStampSlider.colors;
                 newColorBlock.disabledColor = phaseStampSlider.colors.normalColor;
+                phaseStampSlider.colors = newColorBlock;
+            }
+            else if (tolerance <= 1f)
+            {
+                ColorBlock newColorBlock = phaseStampSlider.colors;
+                newColorBlock.disabledColor = phaseStampSlider.colors.highlightedColor;
                 phaseStampSlider.colors = newColorBlock;
             }
         }

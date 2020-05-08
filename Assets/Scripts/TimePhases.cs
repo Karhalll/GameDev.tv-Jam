@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,16 +13,22 @@ public class TimePhases : ScriptableObject
     [Serializable]
     public class TimePhase
     {
-        [Range(0,1000)]
+        [Range(0, 1000)]
         public int timeStamp = 0;
-        public Phase phase = null; 
+        public Phase phase = null;
     }
 
     private List<TimePhase> phaseList = new List<TimePhase>();
 
+    private void OnEnable() 
+    {
+        CreateList();
+    }
+
     private void CreateList()
     {
-        foreach(var phase in timePhases)
+        phaseList.Clear(); // neresi muj problem
+        foreach (var phase in timePhases)
         {
             phaseList.Add(phase);
         }
@@ -29,7 +36,6 @@ public class TimePhases : ScriptableObject
 
     public List<TimePhase> GetPhases()
     {
-        CreateList();
         return phaseList;
     }
 }

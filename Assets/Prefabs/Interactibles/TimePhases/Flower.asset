@@ -15,11 +15,11 @@ MonoBehaviour:
   timePhases:
   - timeStamp: 0
     phase: {fileID: 949777411678307723, guid: d884bd4a27c893c49acafd3d0eb58b02, type: 3}
-  - timeStamp: 200
+  - timeStamp: 181
     phase: {fileID: 949777411678307723, guid: 6c2983650b8dd9049a234e1adcb09a9a, type: 3}
-  - timeStamp: 500
+  - timeStamp: 921
     phase: {fileID: 949777411678307723, guid: ef7132d3193ce3a4e944144a165fd7c0, type: 3}
-  - timeStamp: 750
+  - timeStamp: 732
     phase: {fileID: 949777411678307723, guid: 592d6ac095e9ba5499bc95cf0603067a, type: 3}
-  - timeStamp: 1000
+  - timeStamp: 961
     phase: {fileID: 949777411678307723, guid: 2006dfea95000114d8bed731da4c49e1, type: 3}

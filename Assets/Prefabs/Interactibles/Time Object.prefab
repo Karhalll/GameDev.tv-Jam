@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ec0271a7ca45e4ca827b3cbc8da32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePhases: {fileID: 11400000, guid: ccb6bc6a9be1983478366ff222a879be, type: 2}
+  timePhases: {fileID: 11400000, guid: 3637652244a25b34abe8784d717e3d4a, type: 2}
   currentPhaseIndex: 1
   phaseTransitTime: 2
   timeBarPref: {fileID: 933980561742263909, guid: 3dc997c45f9abf7468b40a9dc09bec97,

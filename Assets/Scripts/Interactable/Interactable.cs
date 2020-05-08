@@ -82,15 +82,18 @@ namespace GameDevJam.Interactable
         {
             DestroyTimeBar();
             timeBar = Instantiate(
-                timeBarPref, 
-                timeBarPref.transform.position, 
+                timeBarPref,
+                timeBarSpawnPoitn.transform.position, 
                 Quaternion.identity, 
                 timeBarSpawnPoitn
             );
-            timeBar.SetTimePhases(timePhases);
+            timeBar.StopSliding();
 
             float startingPos = currentTimePhase.timeStamp;
             timeBar.SetSliderStartingPos(startingPos);
+
+            timeBar.SetTimePhases(timePhases);
+            timeBar.StartSliding();
         }
 
         private void ChangePhase(TimePhases.TimePhase newPhase)
@@ -126,6 +129,8 @@ namespace GameDevJam.Interactable
 
             currentPhaseObj.phaseCollider.enabled = true;
             newPhaseObj.phaseCollider.enabled = false;
+
+            currentTimePhase = newPhase;
         }
 
         private void DestroyTimeBar()

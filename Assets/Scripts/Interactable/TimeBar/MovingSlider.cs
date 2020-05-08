@@ -19,8 +19,8 @@ public class MovingSlider : MonoBehaviour
 
     private void Start() 
     {
-        startingPosition = mySlider.value;
         currentPosition = startingPosition;
+        mySlider.value = currentPosition;
         normTime = NormPos(startingPosition);
     }
     
@@ -38,17 +38,6 @@ public class MovingSlider : MonoBehaviour
         currentPosition = newValue;
     }
 
-    public void SetStartingPos(float startingPos)
-    {
-        startingPosition = startingPos;
-    }
-
-    public float GetCurrentPos()
-    {
-        return currentPosition;
-    }
-
-
     private float NormPosCycle()
     {
         float newNormPos = normTime + Time.deltaTime;
@@ -62,5 +51,19 @@ public class MovingSlider : MonoBehaviour
         return (position / mySlider.maxValue); 
     }
 
+    public void SetStartingPos(float startingPos)
+    {
+        startingPosition = startingPos;
+        mySlider.value = startingPos;
+    }
 
+    public float GetStartingPos()
+    {
+        return startingPosition;
+    }
+
+    public float GetCurrentPos()
+    {
+        return currentPosition;
+    }
 }

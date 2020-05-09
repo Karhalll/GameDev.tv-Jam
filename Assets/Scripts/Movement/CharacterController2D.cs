@@ -105,7 +105,9 @@ namespace GameDevJam.Movement
                     groundLayer
                 );
 
-                if (hit.collider != null && Mathf.Abs(hit.normal.x) > 0.01f  && !isPlayerControlling)
+                // && Mathf.Abs(hit.normal.x) > 0.01f  
+
+                if (hit.collider != null && !isPlayerControlling)
                 {
                     myRigidbody.gravityScale = 0f;
                     myRigidbody.velocity = Vector2.zero;

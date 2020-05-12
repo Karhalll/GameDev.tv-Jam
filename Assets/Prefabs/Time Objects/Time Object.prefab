@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2235762360323278165}
   - component: {fileID: 2235762360323278166}
-  - component: {fileID: 45805282081662369}
   m_Layer: 10
   m_Name: Time Object
   m_TagString: Untagged
@@ -87,19 +86,6 @@ MonoBehaviour:
   currentPhaseObj: {fileID: 3202771368790585020}
   newPhaseObj: {fileID: 2129973777558780619}
   playerSpotter: {fileID: 5466869171526381705}
---- !u!114 &45805282081662369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235762360323278164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327545372739ab448a66f8f4177c7af9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  folder: 0
 --- !u!1 &4154705785189483494
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,16 +72,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1013749573644535950, guid: 1210828600a20724dbdf9858ef7c151c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013749573644535950, guid: 1210828600a20724dbdf9858ef7c151c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1013749573644535951, guid: 1210828600a20724dbdf9858ef7c151c,
         type: 3}
       propertyPath: m_Name
-      value: Ground_2
+      value: Grass_2
       objectReference: {fileID: 0}
     - target: {fileID: 1013749574681521656, guid: 1210828600a20724dbdf9858ef7c151c,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e4df57087ffc4e54982e42e488467e8f,
+      objectReference: {fileID: 21300000, guid: a919123bef7a1da44bec72bb0d201bbd,
         type: 3}
     - target: {fileID: 1013749574681521656, guid: 1210828600a20724dbdf9858ef7c151c,
         type: 3}

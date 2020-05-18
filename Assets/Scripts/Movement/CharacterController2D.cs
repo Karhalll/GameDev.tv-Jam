@@ -10,6 +10,7 @@ namespace GameDevJam.Movement
     {
         [SerializeField] Collider2D groundChecker = null;
         [SerializeField] LayerMask groundLayer = new LayerMask();
+        [SerializeField] float gravityScale = 10f;
 
         bool grounded = false;
         bool isJumping = false;
@@ -114,12 +115,12 @@ namespace GameDevJam.Movement
                 }
                 else
                 {
-                    myRigidbody.gravityScale = 10f;
+                    myRigidbody.gravityScale = gravityScale;
                 }
             }
             else
             {
-                myRigidbody.gravityScale = 10f;
+                myRigidbody.gravityScale = gravityScale;
             }
         }
     }

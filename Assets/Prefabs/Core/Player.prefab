@@ -108,7 +108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   moveSmoothing: 0.025
+  climbSpeed: 2
+  climbLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   jumpForce: 10
+  playerCollider: {fileID: 6354836874513853077}
 --- !u!70 &6354836874513853077
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

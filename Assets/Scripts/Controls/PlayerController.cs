@@ -10,11 +10,16 @@ namespace GameDevJam.Controls
         [SerializeField] float moveSpeed = 5f;
         [Range(0, .3f)]
         [SerializeField] float moveSmoothing = 0.025f;
+        [SerializeField] float climbSpeed = 2f;
+        [SerializeField] LayerMask climbLayer = new LayerMask();
         [SerializeField] float jumpForce = 5f;
+
+        [SerializeField] Collider2D playerCollider = null;
 
         CharacterController2D myController;
 
         float horizontalMove = 0f;
+        float verticalMove = 0f;
         bool isMovementlAllowed = true;
 
         private void Awake()
@@ -25,6 +30,10 @@ namespace GameDevJam.Controls
         private void FixedUpdate()
         {
             Move();
+            if (verticalMove >= 0.1f)
+            {
+                Climb();
+            }
         }
 
         void Update()
@@ -32,6 +41,15 @@ namespace GameDevJam.Controls
             if (isMovementlAllowed)
             {
                 horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+
+                if (playerCollider.IsTouchingLayers(climbLayer))
+                {
+                    verticalMove = Input.GetAxisRaw("Vertical") * climbSpeed;
+                }
+                else
+                {
+                    verticalMove = 0f;
+                }
 
                 if (Input.GetButtonDown("Jump"))
                 {
@@ -43,6 +61,12 @@ namespace GameDevJam.Controls
         private void Move()
         {
             myController.Move(horizontalMove * Time.fixedDeltaTime, moveSmoothing);
+        }
+
+        private void Climb()
+        {
+            print("I'm climbing");
+            myController.Climb(verticalMove * Time.fixedDeltaTime, moveSmoothing);
         }
 
         private void Jump()

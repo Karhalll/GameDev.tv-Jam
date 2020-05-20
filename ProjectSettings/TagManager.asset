@@ -16,7 +16,7 @@ TagManager:
   - Player
   - Ground
   - Interactable
-  - 
+  - Climable
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3362092409
+    locked: 0
+  - name: Foreground
+    uniqueID: 2153820849
     locked: 0

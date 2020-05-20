@@ -13,7 +13,6 @@ namespace GameDevJam.Movement
         [SerializeField] float gravityScale = 10f;
 
         bool grounded = false;
-        bool isJumping = false;
         bool isPlayerControlling = false; //get ridof somehow to make it work even for enemies (no keybord control)
 
         Rigidbody2D myRigidbody;
@@ -57,22 +56,20 @@ namespace GameDevJam.Movement
             myRigidbody.velocity = Vector2.SmoothDamp(myRigidbody.velocity, targetvelocity, ref velocity, moveSmoothing);
         }
 
+        public void Climb(float climSpeed, float moveSmoothing)
+        {
+            Vector2 targetvelocity = new Vector2( myRigidbody.velocity.x, climSpeed * 100);
+            Vector2 velocity = Vector2.zero;
+
+            myRigidbody.velocity = Vector2.SmoothDamp(myRigidbody.velocity, targetvelocity, ref velocity, moveSmoothing);
+        }
+
         public void Jump(float jumpForce)
         {
             if (grounded)
             {
                 myRigidbody.AddForce(new Vector2(0f, jumpForce * 100));
-                isJumping = true;
             }
-            else
-            {
-                isJumping = false;
-            }
-        }
-
-        public bool GetIsJumping()
-        {
-            return isJumping;
         }
 
         // only working for player now -> depending on keybord input.

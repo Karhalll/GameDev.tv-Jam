@@ -67,7 +67,6 @@ namespace GameDevJam.Controls
 
         private void Climb()
         {
-            print("I'm climbing");
             myController.Climb(verticalMove * Time.fixedDeltaTime, moveSmoothing);
         }
 

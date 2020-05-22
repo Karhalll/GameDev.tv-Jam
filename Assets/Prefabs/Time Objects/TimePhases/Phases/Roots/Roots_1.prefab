@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2834904313174801991, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3744956393906171573, guid: 9f764dfc7a22da842980e2e9ee011054,
         type: 3}
       propertyPath: m_Offset.y
@@ -96,6 +101,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 1.3481512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.93984896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.95788836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.50978255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: 0.012218118
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.674107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036065706835680929, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.4358958
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897679406059143928, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -1.0586239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.9765031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.097744375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.5464139
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.40842247
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919548199822185830, guid: 9f764dfc7a22da842980e2e9ee011054,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.6374528
       objectReference: {fileID: 0}
     - target: {fileID: 8997745174936230678, guid: 9f764dfc7a22da842980e2e9ee011054,
         type: 3}
@@ -120,13 +190,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997745174936230678, guid: 9f764dfc7a22da842980e2e9ee011054,
         type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997745174936230678, guid: 9f764dfc7a22da842980e2e9ee011054,
         type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
+      propertyPath: m_SortingLayerID
+      value: -1073322693
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f764dfc7a22da842980e2e9ee011054, type: 3}

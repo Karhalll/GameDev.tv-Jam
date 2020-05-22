@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameDevJam.Interactable
 {
     public class PlayerSpotter : MonoBehaviour
     {
+        [SerializeField] Interactable myInteractable = null;
         bool isPlayerInRange = false;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -13,6 +12,8 @@ namespace GameDevJam.Interactable
             if (other.gameObject.tag == "Player")
             {
                 isPlayerInRange = true;
+
+                myInteractable.currentPhaseObj.LightOn(true);
             }
         }
 
@@ -21,6 +22,8 @@ namespace GameDevJam.Interactable
             if (other.gameObject.tag == "Player")
             {
                 isPlayerInRange = false;
+
+                myInteractable.currentPhaseObj.LightOn(false);
             }
         }
 

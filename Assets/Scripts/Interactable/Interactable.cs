@@ -17,7 +17,7 @@ namespace GameDevJam.Interactable
         [SerializeField] Transform timeBarSpawnPoitn = null;
 
         [Header("PrefabConnections")]
-        [SerializeField] Phase currentPhaseObj = null;
+        [SerializeField] public Phase currentPhaseObj = null;
         [SerializeField] Phase newPhaseObj = null;
         [SerializeField] PlayerSpotter playerSpotter = null;
 
@@ -128,7 +128,9 @@ namespace GameDevJam.Interactable
             newPhaseObj = temp;
 
             currentPhaseObj.phaseCollider.enabled = true;
+            currentPhaseObj.LightOn(true);
             newPhaseObj.phaseCollider.enabled = false;
+            newPhaseObj.LightOn(false);
 
             currentTimePhase = newPhase;
         }

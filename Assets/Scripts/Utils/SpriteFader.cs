@@ -8,6 +8,7 @@ namespace GameDevJam.Utils
     {
         public void SpritesTransition(ref SpriteRenderer firstSprite, ref SpriteRenderer secondSprite, float transitonTime)
         {
+            StopAllCoroutines();
             StartCoroutine(FadeIn(secondSprite, transitonTime));
             StartCoroutine(FadeOut(firstSprite, transitonTime));
         }
@@ -51,7 +52,10 @@ namespace GameDevJam.Utils
                     currentAlpha
                 );
                 time += Time.deltaTime;
-                spriteToFade.color = newColor;
+                if (spriteToFade != null)
+                {
+                    spriteToFade.color = newColor;
+                }
                 yield return null;
             }
         }

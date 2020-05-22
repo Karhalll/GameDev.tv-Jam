@@ -43,10 +43,13 @@ namespace GameDevJam.Movement
 
         private void Update()
         {
-            isPlayerControlling = (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f) || Input.GetButtonDown("Jump");
-            Flip();
+            if (playerController.IsMovementAllowed())
+            {
+                isPlayerControlling = (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f) || Input.GetButtonDown("Jump");
+                Flip();
 
-            myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
+                myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
+            }
         }
 
         public void Move(float moveSpeed, float moveSmoothing)

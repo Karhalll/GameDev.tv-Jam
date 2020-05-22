@@ -88,6 +88,26 @@ PrefabInstance:
       propertyPath: currentPhaseIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4320634967327842074, guid: 2a855189ed74aa14790908c4aa8c77d5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320634967327842074, guid: 2a855189ed74aa14790908c4aa8c77d5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320634967327842074, guid: 2a855189ed74aa14790908c4aa8c77d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320634967327842074, guid: 2a855189ed74aa14790908c4aa8c77d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a855189ed74aa14790908c4aa8c77d5, type: 3}
 --- !u!4 &1031546967397016486 stripped

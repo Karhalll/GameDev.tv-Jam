@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 1013749573644535951, guid: 34aba00ff03591a4484d2d1c041a08ca,
         type: 3}
       propertyPath: m_Name
-      value: Trunk_3
+      value: Branch_2
       objectReference: {fileID: 0}
     - target: {fileID: 1013749573644535951, guid: 34aba00ff03591a4484d2d1c041a08ca,
         type: 3}

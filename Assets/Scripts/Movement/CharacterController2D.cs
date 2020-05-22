@@ -14,6 +14,7 @@ namespace GameDevJam.Movement
 
         bool grounded = false;
         bool isPlayerControlling = false; //get ridof somehow to make it work even for enemies (no keybord control)
+        bool isClimbing = false;
 
         Rigidbody2D myRigidbody;
         Animator myAnimator;
@@ -95,7 +96,7 @@ namespace GameDevJam.Movement
 
         void NormalizeSlope()
         {
-            if (grounded)
+            if (grounded && !isClimbing)
             {
                 RaycastHit2D hit = Physics2D.Raycast(
                     transform.position, 
@@ -119,6 +120,11 @@ namespace GameDevJam.Movement
             {
                 myRigidbody.gravityScale = gravityScale;
             }
+        }
+
+        public void IsClimbing(bool state)
+        {
+            isClimbing = state;
         }
     }
 

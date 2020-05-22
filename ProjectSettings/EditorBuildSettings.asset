@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene FullHD.unity
-    guid: b0655626de36954469c6d5fea9e356e3
+    path: Assets/Scenes/Jirka_level_design.unity
+    guid: f19efa355927ad24d8411fb844062d9b
   m_configObjects: {}

@@ -56,3 +56,6 @@ TagManager:
   - name: Foreground
     uniqueID: 2153820849
     locked: 0
+  - name: TimeBar
+    uniqueID: 945464911
+    locked: 0

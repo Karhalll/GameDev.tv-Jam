@@ -42,13 +42,15 @@ namespace GameDevJam.Controls
             {
                 horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
-                if (playerCollider.IsTouchingLayers(climbLayer))
+                if (playerCollider.IsTouchingLayers(climbLayer) && Input.GetButton("Vertical"))
                 {
                     verticalMove = Input.GetAxisRaw("Vertical") * climbSpeed;
+                    myController.IsClimbing(true);
                 }
                 else
                 {
                     verticalMove = 0f;
+                    myController.IsClimbing(false);
                 }
 
                 if (Input.GetButtonDown("Jump"))

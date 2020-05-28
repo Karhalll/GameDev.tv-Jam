@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using GameDevJam.Controls;
+
 namespace GameDevJam.Interactable
 {
     public class PlayerSpotter : MonoBehaviour
@@ -24,6 +26,13 @@ namespace GameDevJam.Interactable
                 isPlayerInRange = false;
 
                 myInteractable.currentPhaseObj.LightOn(false);
+                other.gameObject.GetComponent<PlayerController>().EnableControl();
+
+                Interactable interactable = GetComponentInParent<Interactable>();
+                if (interactable.isManupilated)
+                {
+                    interactable.EndTimerBarMinigame();
+                }
             }
         }
 

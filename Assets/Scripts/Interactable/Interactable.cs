@@ -23,7 +23,7 @@ namespace GameDevJam.Interactable
 
         TimePhases.TimePhase currentTimePhase = null;
         TimeBar timeBar = null;
-        bool isManupilated = false;
+        public bool isManupilated = false;
 
         private void Start() 
         {
@@ -53,7 +53,7 @@ namespace GameDevJam.Interactable
             timeBar.StartSliding();
         }
 
-        private void EndTimerBarMinigame()
+        public void EndTimerBarMinigame()
         {
             EvaluateTimeBar();
             DestroyTimeBar();

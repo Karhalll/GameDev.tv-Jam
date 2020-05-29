@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG DArk
+    uniqueID: 2080913431
+    locked: 0
+  - name: BG Light
+    uniqueID: 2228164447
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -58,6 +64,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2153820849
+    locked: 0
+  - name: FG Dark
+    uniqueID: 2372734773
     locked: 0
   - name: TimeBar
     uniqueID: 945464911

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368e8d6cbccde604f903c5f88ec26cfd, type: 3}
   m_Name: MaxCrystals
   m_EditorClassIdentifier: 
-  Value: 5
+  Value: 4

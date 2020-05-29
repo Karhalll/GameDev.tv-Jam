@@ -2,11 +2,12 @@
 
 namespace GameDevJam.Core
 {
+    [ExecuteInEditMode]
     public class FollowCamera : MonoBehaviour
     {
         [SerializeField] Transform targetToFollow = null;
 
-        void LateUpdate()
+        void Update()
         {
             transform.position = new Vector3(targetToFollow.position.x, targetToFollow.position.y, transform.position.z);
         }

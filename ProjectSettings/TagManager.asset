@@ -41,6 +41,9 @@ TagManager:
   - name: BG DArk
     uniqueID: 2080913431
     locked: 0
+  - name: BG Dark NSM
+    uniqueID: 429094347
+    locked: 0
   - name: BG Light
     uniqueID: 2228164447
     locked: 0

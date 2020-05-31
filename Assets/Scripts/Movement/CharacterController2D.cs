@@ -37,11 +37,10 @@ namespace GameDevJam.Movement
             {
                 grounded = false;
             }
-
-            NormalizeSlope();    
+            NormalizeSlope();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (playerController.IsMovementAllowed())
             {
@@ -57,7 +56,7 @@ namespace GameDevJam.Movement
             Vector2 targetvelocity = new Vector2(moveSpeed * 100, myRigidbody.velocity.y);
             Vector2 velocity = Vector2.zero;
 
-            myRigidbody.velocity = Vector2.SmoothDamp(myRigidbody.velocity, targetvelocity, ref velocity, moveSmoothing);
+            myRigidbody.velocity = targetvelocity;
         }
 
         public void Climb(float climSpeed, float moveSmoothing)
@@ -65,13 +64,14 @@ namespace GameDevJam.Movement
             Vector2 targetvelocity = new Vector2( myRigidbody.velocity.x, climSpeed * 100);
             Vector2 velocity = Vector2.zero;
 
-            myRigidbody.velocity = Vector2.SmoothDamp(myRigidbody.velocity, targetvelocity, ref velocity, moveSmoothing);
+            myRigidbody.velocity = targetvelocity;
         }
 
         public void Jump(float jumpForce)
         {
             if (grounded)
             {
+                myRigidbody.velocity = myRigidbody.velocity.normalized;
                 myRigidbody.AddForce(new Vector2(0f, jumpForce * 100));
             }
         }
@@ -105,9 +105,7 @@ namespace GameDevJam.Movement
                     transform.position, 
                     -Vector2.up, 5f,
                     groundLayer
-                );
-
-                // && Mathf.Abs(hit.normal.x) > 0.01f  
+                );  
 
                 if (hit.collider != null && !isPlayerControlling)
                 {

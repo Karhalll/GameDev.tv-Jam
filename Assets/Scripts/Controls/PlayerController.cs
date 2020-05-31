@@ -28,16 +28,7 @@ namespace GameDevJam.Controls
         }
 
         private void FixedUpdate()
-        {
-            Move();
-            if (verticalMove >= 0.1f)
-            {
-                Climb();
-            }
-        }
-
-        void Update()
-        {
+        {   
             if (!isMovementlAllowed)
             {
                 horizontalMove = 0f;
@@ -51,11 +42,11 @@ namespace GameDevJam.Controls
             {
                 if (!isMovementlAllowed)
                 {
-                    verticalMove = 0f;
+                verticalMove = 0f;
                 }
                 else
                 {
-                    verticalMove = Input.GetAxisRaw("Vertical") * climbSpeed;
+                verticalMove = Input.GetAxisRaw("Vertical") * climbSpeed;
                 }
                 myController.IsClimbing(true);
             }
@@ -65,12 +56,20 @@ namespace GameDevJam.Controls
                 myController.IsClimbing(false);
             }
 
+            Move();
+
             if (isMovementlAllowed)
             {
                 if (Input.GetButtonDown("Jump"))
                 {
+                    //print("Space press");
                     Jump();
                 }
+            }
+
+            if (verticalMove >= 0.1f)
+            {
+                Climb();
             }
         }
 

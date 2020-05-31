@@ -18,6 +18,8 @@ namespace GameDevJam.Interactable
 
         [SerializeField] Transform phaseStamps = null;
         [SerializeField] GameObject phaseStampPref = null;
+        [SerializeField] Sprite activePhase = null;
+        [SerializeField] Sprite notReachablePhase = null;
 
         TimePhases objectsTimePhases = null;
 
@@ -59,16 +61,20 @@ namespace GameDevJam.Interactable
             float tolerance = Mathf.Abs(placement - movingSlider.GetStartingPos());
             if (placement > currenTimeToManip)
             {
-                ColorBlock newColorBlock = phaseStampSlider.colors;
-                newColorBlock.disabledColor = phaseStampSlider.colors.normalColor;
-                phaseStampSlider.colors = newColorBlock;
+                Image phaseSprite = (Image)phaseStampSlider.targetGraphic;
+                phaseSprite.sprite = notReachablePhase;
+                // ColorBlock newColorBlock = phaseStampSlider.colors;
+                // newColorBlock.disabledColor = phaseStampSlider.colors.normalColor;
+                // phaseStampSlider.colors = newColorBlock;
             }
             else if (tolerance <= 1f)
             {
-                ColorBlock newColorBlock = phaseStampSlider.colors;
-                newColorBlock.disabledColor = phaseStampSlider.colors.highlightedColor;
-                phaseStampSlider.colors = newColorBlock;
-            }
+                Image phaseSprite = (Image)phaseStampSlider.targetGraphic;
+                phaseSprite.sprite = activePhase;
+                // ColorBlock newColorBlock = phaseStampSlider.colors;
+                // newColorBlock.disabledColor = phaseStampSlider.colors.highlightedColor;
+                // phaseStampSlider.colors = newColorBlock;
+      }
         }
 
         private void DestoryChildrenIn(Transform parent)

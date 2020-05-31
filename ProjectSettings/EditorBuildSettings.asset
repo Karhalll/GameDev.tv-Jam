@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Jirka_level_design.unity
-    guid: f19efa355927ad24d8411fb844062d9b
+    path: Assets/Scenes/Level.unity
+    guid: baf310d47d872d744b2dc380c626f5f8
   m_configObjects: {}

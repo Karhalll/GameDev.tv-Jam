@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: REAL BG
+    uniqueID: 91275739
+    locked: 0
   - name: BG DArk
     uniqueID: 2080913431
     locked: 0

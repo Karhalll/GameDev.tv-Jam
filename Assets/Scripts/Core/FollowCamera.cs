@@ -8,6 +8,8 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] Transform folloTarget = null;
     [SerializeField] float horizontalDumping = 5f;
 
+    bool isTransitioning = false;
+
     private void Update() 
     {
         Vector3 newPos = new Vector3(
@@ -15,7 +17,24 @@ public class FollowCamera : MonoBehaviour
             folloTarget.position.y,
             transform.position.z);
 
-        //transform.position = Vector3.Lerp(transform.position, newPos, horizontalDumping); 
-        transform.position = newPos;
+        if (!isTransitioning)
+        {
+            transform.position = newPos;
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, newPos, horizontalDumping);
+            if (transform.position == newPos)
+            {
+                isTransitioning = false;
+            }
+        } 
+    }
+
+    public void SlowTransitionTo(Transform newTarget, float transitSpeed)
+    {
+        folloTarget = newTarget;
+        horizontalDumping = transitSpeed;
+        isTransitioning = true;
     }
 }

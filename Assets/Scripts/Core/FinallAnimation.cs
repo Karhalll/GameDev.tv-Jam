@@ -7,7 +7,8 @@ namespace GameDevJam.Core
 {
   public class FinallAnimation : MonoBehaviour
   {
-	[SerializeField] PlayableDirector directour = null;
+	[SerializeField] Transform finalCameraPos = null;
+	[SerializeField] float transitSpeed = 0.02f;
 
     private void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player")
@@ -15,8 +16,8 @@ namespace GameDevJam.Core
 			PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
 			playerController.DisableControl();
 
-			// directour.Play();
-		}
+			Camera.main.gameObject.GetComponent<FollowCamera>().SlowTransitionTo(finalCameraPos, transitSpeed);
+      }
     }
   }
 

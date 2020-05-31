@@ -15,7 +15,7 @@ namespace GameDevJam.Core
 			PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
 			playerController.DisableControl();
 
-			directour.Play();
+			// directour.Play();
 		}
     }
   }

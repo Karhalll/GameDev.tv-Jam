@@ -20,6 +20,8 @@ namespace GameDevJam.Movement
         Animator myAnimator;
         PlayerController playerController;
 
+        float jumpTimer = 1f;
+
         private void Awake()
         {
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -37,11 +39,11 @@ namespace GameDevJam.Movement
             {
                 grounded = false;
             }
-            NormalizeSlope();
         }
 
         private void LateUpdate()
         {
+            NormalizeSlope();
             if (playerController.IsMovementAllowed())
             {
                 isPlayerControlling = (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f) || Input.GetButtonDown("Jump");
@@ -49,6 +51,8 @@ namespace GameDevJam.Movement
 
             }
             myAnimator.SetFloat("moveSpeed", Mathf.Abs(myRigidbody.velocity.x));
+
+            UpdateJumpTimer();
         }
 
         public void Move(float moveSpeed, float moveSmoothing)
@@ -71,6 +75,7 @@ namespace GameDevJam.Movement
         {
             if (grounded)
             {
+                jumpTimer = 0f;
                 myRigidbody.velocity = myRigidbody.velocity.normalized;
                 myRigidbody.AddForce(new Vector2(0f, jumpForce * 100));
             }
@@ -107,7 +112,7 @@ namespace GameDevJam.Movement
                     groundLayer
                 );  
 
-                if (hit.collider != null && !isPlayerControlling)
+                if (hit.collider != null && !isPlayerControlling && jumpTimer > 0.3f)
                 {
                     myRigidbody.gravityScale = 0f;
                     myRigidbody.velocity = Vector2.zero;
@@ -126,6 +131,11 @@ namespace GameDevJam.Movement
         public void IsClimbing(bool state)
         {
             isClimbing = state;
+        }
+
+        private void UpdateJumpTimer()
+        {
+            jumpTimer += Time.deltaTime;
         }
     }
 

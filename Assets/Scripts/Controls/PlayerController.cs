@@ -60,7 +60,7 @@ namespace GameDevJam.Controls
 
             if (isMovementlAllowed)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButton("Jump"))
                 {
                     //print("Space press");
                     Jump();
